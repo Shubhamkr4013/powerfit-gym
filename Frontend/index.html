@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PowerFit Elite</title>
+
+<link rel="stylesheet" href="style.css">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div id="loader">Loading...</div>
+<header class="navbar">
+  <h1 class="logo">PowerFit</h1>
+
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#plans">Plans</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#contact">Contact</a>
+    <button onclick="openModal()">Login</button>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h2>Transform Your Body</h2>
+    <p>Train Hard. Stay Strong.</p>
+    <button onclick="scrollToPlans()">Join Now</button>
+  </div>
+</section>
+
+<section id="plans" class="plans">
+  <h2>Membership Plans</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Monthly</h3>
+      <p>₹999</p>
+      <button onclick="bookNow('Monthly')">Book</button>
+      <button onclick="payNow(999)">Pay</button>
+    </div>
+
+    <div class="card premium">
+      <h3>6 Months</h3>
+      <p>₹4999</p>
+      <button onclick="bookNow('6 Months')">Book</button>
+      <button onclick="payNow(4999)">Pay</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+  <h2>Membership Plans</h2>
+<div class="features-grid">
+ 
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" loading="lazy">
+    <p>Modern Equipment</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c" loading="lazy">
+    <p>Free Weights</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b" loading="lazy">
+    <p>Personal Trainer</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1" loading="lazy">
+    <p>Cardio Zone</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" loading="lazy">
+    <p>Yoga Classes</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74" loading="lazy">
+    <p>Locker Room</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" loading="lazy">
+    <p>AC Gym</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" loading="lazy">
+    <p>Parking</p>
+  </div>
+
+</div>
+
+<!-- PRODUCTS -->
+<section id="products" class="products">
+  <h2>Our Supplements</h2>
+
+  <div id="productContainer" class="product-grid"></div>
+ 
+  <button id="viewMoreBtn" onclick="goToProducts()">View More</button>
+</section>
+
+<!-- <select onchange="filterCategory(this.value)">
+  <option value="all">All</option>
+  <option value="protein">Protein</option>
+</select> -->
+
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <h2>Our Gym Gallery</h2>
+
+  <div class="images">
+    <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
+    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+    <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
+  </div>
+</section>
+
+
+<!-- trainers -->
+<section id="trainers" class="trainers">
+  <h2>Our Trainers</h2>
+
+  <div class="trainer-grid">
+
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a" loading="lazy">
+      <h3>Shubham Kumar</h3>
+      <p>Strength Coach</p>
+    </div>
+
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b" loading="lazy">
+      <h3>Neha Kumari</h3>
+      <p>Fitness Trainer</p>
+    </div>
+
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1549476464-37392f717541" loading="lazy">
+      <h3>Aman Kumar</h3>
+      <p>Yoga Expert</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="dashboard" class="dashboard">
+  <h2>Admin Dashboard</h2>
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="stat-card">
+      <h3>👥 Users</h3>
+      <p>120</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>💰 Revenue</h3>
+      <p>₹45,000</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>📅 Bookings</h3>
+      <p>35</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>🏋️ Members</h3>
+      <p>80</p>
+    </div>
+
+  </div>
+
+  <!-- CHART -->
+  <div class="chart-box">
+    <canvas id="chart"></canvas>
+  </div>
+</section>
+
+
+<div id="authModal" class="modal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal()">×</span>
+
+    <div class="tabs">
+      <button onclick="showLogin()" id="loginTab" class="active">Login</button>
+      <button onclick="showRegister()" id="registerTab">Register</button>
+    </div>
+
+    <div id="loginForm">
+      <input id="email" placeholder="Email">
+      <input id="password" type="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="registerForm" style="display:none;">
+      <input id="regEmail" placeholder="Email">
+      <input id="regPhone" placeholder="Phone Number">
+      <input id="regPassword" type="password" placeholder="Password">
+      <input id="regConfirm" type="password" placeholder="Confirm Password">
+      <button onclick="register()">Register</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  <p>© 2026 PowerFit Elite</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
